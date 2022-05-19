@@ -20,7 +20,7 @@ class Untitled {
     _channel.setMethodCallHandler(methodHandler); // set method handler
   }
 
-  Future<void> methodHandler(MethodCall call) async {
+  Future<dynamic> methodHandler(MethodCall call) async {
     final String idea = call.arguments;
 
     switch (call.method) {
@@ -29,7 +29,7 @@ class Untitled {
        if (kDebugMode) {
          print("object");
        }
-        break;
+       return true;
       default:
         if (kDebugMode) {
           print('no method handler for method ${call.method}');

@@ -52,6 +52,21 @@ class UntitledPlugin: FlutterPlugin, MethodCallHandler {
       val noti = NotificationHelper()
       noti.createChannel(getInstance().context)
       noti.showNotification(getInstance().context)
+      val r = object :Result{
+        override fun success(result: Any?) {
+          print(result)
+        }
+
+        override fun error(errorCode: String?, errorMessage: String?, errorDetails: Any?) {
+          print(errorCode)
+        }
+
+        override fun notImplemented() {
+          print("result")
+        }
+
+      }
+      channel.invokeMethod("showNewIdea", "HIEP",r)
 //      val myReceiver = NotificationReceiver()
 //      val intentFilter = IntentFilter(BROADCAST)
 //      context.registerReceiver(myReceiver, intentFilter)
